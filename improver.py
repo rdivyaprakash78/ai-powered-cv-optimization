@@ -10,6 +10,7 @@ from prompts import prompts
 import streamlit as st
 
 load_dotenv()
+os.defpath("myenv/")
 key = os.getenv("COHERE_API_KEY")
 
 llm = ChatCohere(cohere_api_key=key, temperature= 0.1)
