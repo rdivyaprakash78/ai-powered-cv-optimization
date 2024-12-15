@@ -4,3 +4,5 @@ langchain_cohere
 langgraph
 regex
 streamlit
+langchain_groq
+rich

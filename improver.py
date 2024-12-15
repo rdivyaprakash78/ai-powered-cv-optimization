@@ -46,7 +46,9 @@ evaluater_human_message = ChatPromptTemplate.from_messages([
 
 def generater(state : state):
     global generater_human_message,generater_messages
-
+    print("These are the values in generater")
+    print("keyword : ", state["keywords"])
+    print("suggestions : ", state["suggestions"])
     generater_human_prompt = generater_human_message.invoke(
         {
             "base_cv": state["cv"], 
@@ -87,22 +89,29 @@ def evaluater(state : state):
     temp = response
 
     pattern = r"score.*?(\d+)"
-    match = re.search(pattern, temp.content)
+    match = re.search(pattern, temp.content.lower())
 
     if match:
+        print("matched")
         state["score"] = int(match.group(1))
 
-    pattern = r"(?<=suggestions:\n)((?:- .*\n?)+)"
-    match = re.search(pattern, temp.content)
+    pattern = r"(?<=suggestions :\n)((?:- .*\n?)+)"
+    match = re.search(pattern, temp.content.lower())
 
     if match:
         state["suggestions"] = match.group(1)
 
-    pattern = r"(?<=missing keywords:\n)((?:- .*\n?)+)"
-    match = re.search(pattern, temp.content)
+    pattern = r"(?<=missing keywords :\n)((?:- .*\n?)+)"
+    match = re.search(pattern, temp.content.lower())
 
     if match:
         state["keywords"] = match.group(1)
+
+    print("score now : ", state["score"])
+
+    print("These are the values in evaluater")
+    print("keyword : ", state["keywords"])
+    print("suggestions : ", state["suggestions"])
 
     return_dict = {
         "messages" : response, 
@@ -114,7 +123,6 @@ def evaluater(state : state):
     return return_dict
 
 #decider function
-
 def decide_node(state: state):
     global attempts, max_attempts
 

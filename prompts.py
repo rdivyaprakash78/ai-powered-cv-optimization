@@ -17,9 +17,8 @@ prompts = {
     Some times the user might provide a list of keywords to be used and some suggestions to improve their CV.
     Keep that as well into account while generating the CV.
 
-    Use a proper format and capitalization wherever needed.
-
-    Your response formate should be : "cv : [CV]" 
+    Use a proper format and capitalization wherever needed. Your response should be the generated CV in markdown format.
+    If you do not return a markdown response you will be penalized.
  """ ,  
 
  "generater human message prompt" :
@@ -30,6 +29,8 @@ prompts = {
 
     Add these keywords to the CV: {keywords}.
     Here are some suggestions: {suggestions}.
+
+    Format instructions : {format_instructions}
  """,
 
  "evaluater system message prompt" :
@@ -41,11 +42,7 @@ prompts = {
     mentioned criterias. Also if you think that the CV needs any improvement you need to provide
     area of improvements in not more than 200 words.
 
-    Your response formate should be : 
-    
-    "score : [score]. 
-    suggestions : [suggestions].
-    missing keywords : [keywords]." 
+    Your response formate should contain: score, suggestions, missing keywords 
  """,
 
  "evaluater human message prompt" :
