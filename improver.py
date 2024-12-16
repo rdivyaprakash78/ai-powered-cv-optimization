@@ -22,8 +22,10 @@ node = nodes()
 
 graph = StateGraph(state)
 graph.add_node("keywords_extractor", node.keywords_extracting_agent)
+graph.add_node("generater", node.cv_generater)
 graph.add_edge(START, "keywords_extractor")
-graph.add_edge("keywords_extractor", END)
+graph.add_edge("keywords_extractor", "generater")
+graph.add_edge("generater", END)
 
 compiled_graph = graph.compile()
 
@@ -41,8 +43,11 @@ messages = compiled_graph.invoke(
 print("technical_keywords : ", messages["technical_keywords"])
 print("non_technical_keywords : ", messages["non_technical_keywords"])
 
+messages
 
-
+console = Console()
+markdown = Markdown(messages["cv"])
+console.print(markdown)
 
 
 

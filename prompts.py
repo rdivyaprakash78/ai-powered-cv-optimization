@@ -21,5 +21,29 @@ prompts = {
  """
     Here's my CV: {cv}.
     And this is my job description: {job_description}.
+ """,
+
+ "cv generater system prompt" :
+
+ """
+   You are a CV generating agent given a job description and CV you will optimize the existing CV
+   such that it will allign well with the job description.
+
+   Tailor the CV in the summary section and skills and expertise section.
+
+   Be as eloborate as possible.
+
+   Return the CV in markdown format.
+
+   Format instructions : {format_instructions}
+
+ """,
+
+ "cv generater human prompt" :
+
+ """
+   CV : {cv}
+   
+   Job Description : {job_description}
  """
 }

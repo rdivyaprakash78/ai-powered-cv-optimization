@@ -47,13 +47,51 @@ class nodes :
         # Parsing and recalling of llm if not parsed right
         try :
             parser.parse(response.content)
-            evaluater_result = parser.parse(response.content)
+            result = parser.parse(response.content)
         except OutputParserException as e:
             new_parser = OutputFixingParser.from_llm(parser=parser, llm=self.llm)
-            evaluater_result = new_parser.parse(response.content)
+            result = new_parser.parse(response.content)
 
         return {
-            "technical_keywords" : evaluater_result.technical_keywords,
-            "non_technical_keywords" : evaluater_result.non_technical_keywords
+            "technical_keywords" : result.technical_keywords,
+            "non_technical_keywords" : result.non_technical_keywords
         }
+    
+    def cv_generater(self, state):
+
+        # Pydantic BaseModel definition for response
+        class cv(BaseModel):
+            cv : str = Field(description= "Optimized CV based on the job description")
+
+        parser = PydanticOutputParser(pydantic_object= cv)
+
+        # Prompt for extracting keywords
+        cv_generater_prompt = ChatPromptTemplate.from_messages([
+            ("system", prompts["cv generater system prompt"]),
+            ("human", prompts["cv generater human prompt"])
+        ]
+        )
+
+        # Chain for extracting keywords
+        non_technical_keywords_adder_chain = cv_generater_prompt | self.llm
+
+        # Invoke the chain
+        response = non_technical_keywords_adder_chain.invoke({
+            "cv" : state["cv"],
+            "job_description" : state["job_description"],
+            "format_instructions" : parser.get_format_instructions()
+        })
+
+        # Parsing and recalling of llm if not parsed right
+        try :
+            parser.parse(response.content)
+            result = parser.parse(response.content)
+        except OutputParserException as e:
+            new_parser = OutputFixingParser.from_llm(parser=parser, llm=self.llm)
+            result = new_parser.parse(response.content)
+
+        return {
+            "cv" : result.cv
+        }
+
 
