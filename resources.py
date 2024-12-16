@@ -1,8 +1,8 @@
 cv = """
-DIVYAPRAKASH RATHINASABAPATHY – DATA SCIENTIST
-    rdivyaprakash78@gmail.com|| +44 7818337189 ||https://www.linkedin.com/in/divyaprakash-rathinasabapathy-6340861a7/
-London, UK.
-Passionate Data Scientist with hands-on experience in developing and implementing machine learning models and AI-driven solutions to address real-world challenges. Proficient in leveraging Python for data manipulation and analysis of complex datasets, with a focus on unstructured data, including text, images, and videos. Demonstrated expertise in applying statistical and machine learning techniques to derive actionable insights, communicate technical solutions to non-technical stakeholders, and contribute to data-driven regulatory practices. Seeking to apply my skills to help the ASA effectively monitor online advertising compliance and enhance consumer protection. Portfolio Link.
+DIVYAPRAKASH RATHINASABAPATHY – AI/ML ENGINEER
+    rdivyaprakash78@gmail.com|| +91 6381659693 ||https://www.linkedin.com/in/divyaprakash-rathinasabapathy-6340861a7/
+Chennai, India.
+AI Engineer with a Master’s in Data Science and a strong background in machine learning, natural language processing, and generative AI. Skilled in developing and optimizing AI-driven solutions, including RAG-based system, multi-agent architectures, and predictive models. Experienced in leveraging frameworks like LangChain, LangGraph, and Autogen to build scalable AI architectures. Proven ability to work independently on complex projects, managing workflows and collaborating across teams to deliver impactful solutions. Expertise in data engineering, model optimization, and integrating AI systems to enhance business performance. GitHub
 
 EDUCATION	
 Data Science, M.Sc., – Kingston University, U.K.			                                                                               Jan 2023 – Jan 2024
@@ -10,21 +10,26 @@ Electronics and Communication Engineering, B.Tech., – Amrita School of Enginee
 
 SKILLS AND EXPERTISE
 	
-	Machine Learning & Statistical Analysis: Proficient in developing, training, and deploying machine learning models in Python, applying various statistical and machine learning techniques, including LLM-based tools, to extract insights from unstructured data.
-	Data Manipulation & Analysis: Extensive experience in data cleaning, transformation, and validation processes using Python and SQL, ensuring high-quality datasets for analysis.
-	Unstructured Data Processing: Skilled in analysing diverse data formats, including text, images, and videos, to identify patterns and inform regulatory priorities in online advertising.
-	Communication & Stakeholder Engagement: Proven ability to convey complex technical solutions to non-technical stakeholders, translating regulatory challenges into actionable data science projects.
-	End-to-End Project Management: Strong track record of taking ownership of data science projects, from conception through deployment, ensuring alignment with stakeholder needs and regulatory objectives.
+	AI Systems & Machine Learning: Expertise in building and optimizing machine learning models for AI applications, including natural language processing (NLP) and financial data analysis.
+	Language Model Frameworks: Proficient in using LangChain, LangGraph and Autogen for developing and fine-tuning language models for AI systems.
+	Model Optimization & Experimentation: Experienced in running experiments to optimize model performance, using techniques like hyperparameter tuning, transfer learning, and data augmentation.
+	Vector & Graph Databases: Hands-on experience working with vector databases to enhance retrieval systems and improve performance in AI-driven applications.
+	Data Engineering: Expertise in data preprocessing, feature extraction, and developing scalable data pipelines to ensure efficient processing and retrieval of financial data.
+	Predictive Modelling: Strong background in developing predictive models using time-series analysis, regression, and advanced statistical techniques to analyse and forecast financial and economic trends.
+	Machine Learning Frameworks: Advanced proficiency in Python, with experience in TensorFlow, PyTorch, scikit-learn, and Keras for building and deploying machine learning models.
+	Cross-functional Collaboration: Skilled in working closely with data scientists, engineers, and product teams to ensure the integration of AI solutions into scalable products and services.
 
 WORK EXPERIENCE	
 
 AI Engineer Intern – Navi Promotions, Remote. 			                                                                                   Oct 2024 – Present
-	Designed and developed prototypes for AI solutions in alignment with client specifications, effectively translating complex requirements into functional models that enhance user experience and meet business objectives.
-	Fine-tuned advanced Hugging Face models for text and speech processing, employing techniques such as hyperparameter tuning and data augmentation to significantly improve model accuracy and response time.
-	Engineered and implemented vector databases to support knowledge base applications, facilitating efficient data retrieval and improving the performance of AI-driven systems.
-	Worked closely with cross-functional teams, including data scientists and software engineers, to ensure seamless integration of AI solutions and alignment with overall project goals.
-	Authored comprehensive documentation outlining the development processes, model specifications, and database architecture, ensuring clarity and facilitating knowledge transfer within the team.
-	Engaged in ongoing evaluation of AI models and databases, identifying areas for improvement and implementing iterative enhancements to maintain cutting-edge performance.
+	Developed Retrieval-Augmented Generation (RAG) based prototypes for chatbots, tailored to client specifications, incorporating advanced NLP models to enhance user interactions and meet business objectives.
+	Engineered multi-agent flow architectures using frameworks such as Autogen and LangGraph, enabling the creation of dynamic, scalable AI systems that can handle complex, multi-step user interactions.
+	Worked with backend frameworks like Flask to design and implement server-side architectures for AI solutions, ensuring smooth integration with client systems and services.
+	Built and optimized robust Generative AI systems, focusing on improving the reliability and responsiveness of large language model (LLM) outputs, ensuring accurate and contextually appropriate results.
+	Implemented advanced parsing techniques using libraries like Pydantic and Instructor, improving the extraction and validation of structured data from natural language inputs, enhancing the chatbot's performance and reliability.
+	Documented development processes, model specifications, and system architectures to ensure clarity and facilitate future enhancements and knowledge transfer.
+	Worked independently on the entire project, organizing and managing all aspects of the workflow, from requirements gathering to model deployment. This autonomy enhanced my ability to prioritize tasks, meet deadlines, and deliver high-quality solutions with minimal supervision.
+
 
 Junior Machine Learning Engineer Volunteer – Omdena, Remote. 			                                               Apr 2024 – Jun 2024
 	Collaborated with senior data scientists and clients to identify and define project objectives, gathering requirements and collecting relevant data to effectively address specific business challenges.
@@ -34,11 +39,13 @@ Junior Machine Learning Engineer Volunteer – Omdena, Remote. 			              
 	Developed comprehensive reports and visualizations to clearly communicate findings to stakeholders, facilitating a better understanding of data-driven insights.
 	Engaged in continuous learning and skill development, staying updated with industry best practices to enhance analytical capabilities and contribute effectively to team projects.
 
-Salesforce Programmer Analyst trainee – Cognizant Technology Solutions, India.			                            Aug 2021 – Nov 2022
-	Developed and implemented optimizations using Apex code and Lightning components, according to business objectives.
-	Integrated Salesforce with external systems using RESTful and SOAP-based APIs, automating cloud data exchange and improving efficiency.
-	Demonstrated strong collaborative skills by collaborating closely with cross-functional teams to understand their requirements and provide effective solutions within the Salesforce ecosystem.
-	Stayed updated on the latest Salesforce platform features, tools, and technologies, continuously enhancing skills and knowledge to drive innovation and deliver value-added solutions.
+Programmer Analyst trainee: Data Science – Cognizant Technology Solutions, India.			                             Aug 2021 – Nov 2022
+	Developed and optimized NLP models for extracting actionable insights from large datasets, leveraging state-of-the-art techniques in text processing and deep learning to enhance business decision-making processes.
+	Implemented Retrieval-Augmented Generation (RAG) systems, combining document retrieval and generative models to improve the accuracy and relevance of automated responses for customer-facing applications.
+	Utilized advanced NLP frameworks such as Hugging Face and TensorFlow to build, fine-tune, and deploy language models for tasks including text summarization, sentiment analysis, and question-answering.
+	Designed and built data pipelines for the efficient processing and transformation of textual data, ensuring that NLP models received high-quality, clean data for optimal performance.
+	Integrated NLP solutions with external systems using RESTful APIs, enabling seamless interaction between the AI models and enterprise platforms, thus enhancing user experience and operational efficiency.
+	Collaborated with cross-functional teams to gather requirements, define business goals, and deliver NLP solutions aligned with customer needs and business objectives.
 
 PROJECT EXPERIENCE	
 
@@ -50,9 +57,10 @@ Doctor’s appointment managing Chatbot										         Link
 	Designed and built an interactive chatbot system for managing doctor appointments, using Google’s Gemini Large Language Model for NLP tasks such as intent and entity recognition.
 	Implemented MySQL for database management and used Streamlit for the front-end interface. The chatbot automated tasks like appointment booking, editing, and cancellations, improving operational efficiency and user experience. 
 
-Predictive Modelling for T20 Cricket:										                          Link
-	Created a machine learning model for real-time prediction of T20 cricket first innings totals using Python.
-	Conducted extensive feature engineering and developed a Decision Tree Regression model, achieving RMSE of 6.15 and MAE of 3.07, providing accurate and timely predictions for in-game decision-making. 
+AI powered CV optimization tool using Langgraph									       
+	Built an AI-driven CV optimization tool using Python, LangChain, Cohere LLM API, and Streamlit to enhance CV relevance based on job descriptions.
+	Designed a StateGraph framework for iterative CV evaluation, scoring, and refinement, with automated suggestions and keyword alignment.
+	Developed a user-friendly interface enabling real-time CV updates, leveraging Regex for precise data extraction and actionable insights.
 
 Ship Performance analysis: 											         Link
 	Applied statistical techniques such as ANOVA and Tukey HSD to assess ship performance over time, identifying significant differences in performance metrics.
@@ -63,34 +71,46 @@ Ship Performance analysis: 											         Link
 
 jd = """
 About the job
-Skills:
-Machine Learning, Python Programming, Predictive Modeling, Data Mining, PyTorch, Hadoop, Clustering algorithm, Kafka,
+What Our 2 Year Data Analyst Graduate Scheme Involves
 
-A Data Scientist is expected to design the pipeline right from data ingestion to storage to curation to building models considering the business requirements. A DS should give importance to extract the quality data, experiment and choose the best-fit machine learning model and plan for enhancements based on A/B testing or other means. A DS should be abreast with the new opensource tools that get built and evaluating the relevance to our projects. They should be creating the storyline for presenting any insights that are derived from the bigdata, trivial or non-trivial.
-
-Responsibilities
-
- Understand the business requirements, ideate and advise an experimental solution.
- Elicit the architecture for the big data processing of various data sources.
- Accentuate the anomaly removal in bigdata and propose solutions that handle both structured and unstructured data.
- Builds recommendation engines for various use-cases based on data like location, media consumption etc. of users.
- Build machine learning/statistical models to give the results that help sales and marketing teams.
- Extract meaningful insights by experimenting with relevant ML models.
- Help in resolving the teams technical queries, blockers etc.
- Suggest futuristic bigdata pipelines and algorithms to best fit the growing bigdata.
-
-Skills
-
-LSTM, Machine Learning, Regression etc, Clustering algorithm, Classification problems.
-Knowledge in ETL and big data technologies like Hadoop, spark
-Must have deployed Machine learning solutions in production environment
-Must be good in Data structures and Algorithms
-Strong in python coding 
-Strong in PyTorch or TensorFlow or Keras
-Knowledge in Flask, Spark ML, Queuing System like Kafka, Databases.
+Our graduate schemes are all about creating our future leaders, you’ll be working as part of our core business teams where you’ll be supported every step of the way, enjoying structured training and the chance to shine through working on exciting projects. Not only will you gain wide-ranging experience of a big business and bags of industry insight our graduate roles are a great opportunity for you to kick-start your career. We’ll help you on your way to climbing the career ladder into managerial roles within both the function and wider business.
 
 
-Desired Skills and Experience
-Machine Learning, Python Programming, Pr
+
+Our 2-year Data Analyst Programme focuses on helping you develop specialist expertise in Data and Analytics. You will get the opportunity to work on varying projects across the business.
+
+You’ll collaborate with stakeholders across the business to solve key issues. Communicating results to key decision makers including Heads of and Directors. You will keep up to date with trends in data science, learning and share new skills and methods. You will receive training covering the core knowledge and skills you’ll need to succeed.
+
+
+
+You’ll be nurtured as part of the EVRi Emerging Talent Development programme with a business mentor provided to support you on your journey with us. As part of the programme, you will attend inclusive graduate peer networking and communal development days to allow you to connect with fellow graduates.
+
+
+
+What You’ll Need To Become An EVRi Graduate
+
+A minimum 2:1 degree in Data Science, statistics, computer science, maths or a similar degree.
+Great communication skills and the ability to lead, influence and build strong working relationships with a diverse team of people.
+Positive attitude, resilient, determined and a great listener and communicator.
+Enjoy working in a challenging, fast-paced environment.
+Be analytical and good with numbers with plenty of common sense.
+Familiarity with a popular coding language for data analysis such as Python, R or SQL.
+A full UK driving license as some travel may be required in this role between EVRi sites.
+The ability to solve problems and keep your finger on the pulse of what’s happening across our business.
+
+
+Why Join the Evri Team?
+
+Every parcel, every person, every place – every delivery made for you.
+
+With 650 million parcels delivered per year, Evri is a data-rich operation, with every customer, client and courier engagement, producing actionable insights - across web and app interfaces, telematics, scanner data, operations, CRM and more.
+
+Evri is leading the way in creating responsible delivery experiences for everyone, everywhere. And we’re doing that by offering the most convenient way to send, receive and return parcels without costing the earth.
+
+Whether it’s a customer sending a present to a friend, a marketplace trader shipping in bulk or a major retailer such as John Lewis, asos or Next, we’ve got it covered. With our team of 30,000 couriers, thousands of local ParcelShops and a growing network of hubs and depots across the country, we safely get parcels from A to everywhere.
+
+And it’s not just customers and retailers who trust us. We’ve won loads of industry awards over the past few years, including gongs for IT, innovation and our green fleet.
+
+But we wouldn’t be the biggest dedicated parcel delivery company in the UK without amazing people. We’re a friendly, ambitious and diverse bunch, united by a passion for delivering the best customer experience. We have great opportunities throughout the business, so take a look to see where you might fit in. We can’t wait to hear from you.
 
 """
