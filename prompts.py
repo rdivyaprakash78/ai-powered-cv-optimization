@@ -23,27 +23,26 @@ prompts = {
     And this is my job description: {job_description}.
  """,
 
- "cv generater system prompt" :
+ "critic system prompt" :
 
  """
-   You are a CV generating agent given a job description and CV you will optimize the existing CV
-   such that it will allign well with the job description.
+  You are a job recruiter. Given a CV of a candidate and the job description for the role you are
+  recruiting, you have a give critic on the candidate.
 
-   Tailor the CV in the summary section and skills and expertise section.
+  You have to analyse his CV against the job description and you should provide
+  an in depth analysis on where the candidate is lacking.
 
-   Be as eloborate as possible.
+  You have to give a descriptive report on lacking skills and expertise of the candidate
+  required for the job and the company based on the cv.
 
-   Return the CV in markdown format.
-
-   Format instructions : {format_instructions}
-
+  format instructions : {format_instructions}
  """,
 
- "cv generater human prompt" :
+ "critic human prompt" :
 
  """
-   CV : {cv}
+  CV : {cv}
    
-   Job Description : {job_description}
- """
+  Job Description : {job_description}
+ """,
 }
