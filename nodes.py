@@ -5,9 +5,9 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from prompts import prompts
 from langchain_groq import ChatGroq
 from langchain_core.exceptions import OutputParserException
-from typing import List
+from typing import List, Literal
 from pydantic import BaseModel, Field
-from resources import cv,jd
+import time
 
 load_dotenv()
 
@@ -19,7 +19,7 @@ os.environ["LANGCHAIN_PROJECT"]="cv-improver"
 class nodes :
 
     def __init__(self):
-        self.llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.25)
+        self.llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0.25)
         self.api_key = os.getenv("GROQ_API_KEY")
 
     def template(self, pydantic_obj, prompt, prompt_value_dict):
@@ -38,64 +38,89 @@ class nodes :
             result = new_parser.parse(response.content)
 
         return result
+    
+    def skills_needed(self,state):
 
-    def missing_keywords (self, state):
+        class skillsNeededObject (BaseModel):
+            skill : str = Field(description = "Skill that is required for the job")
+            description : str = Field(description = "Description of the skill")
+            priority : str = Field(description = "Priority of the skill for the provided job description. Score out of 100.")
+            skill_type : Literal["technical", "non technical"] = Field(description = "Whether the skill is technical or non technical")
 
-        class keywords_extracting_response(BaseModel):
-            non_technical_keywords : List[str] = Field(description="List of extracted ATS friendly keywords that are missing in the CV based on the Job description")
-            technical_keywords : List[str] = Field(description="List of extracted ATS friendly technical keywords that are missing in the CV based on the Job description")
+        class skillsNeededResponse (BaseModel):
+            skills_needed : List[skillsNeededObject] = Field(description = "List of skills_needed object. Each object have skill name, priority and their type.")
 
         prompt = ChatPromptTemplate.from_messages([
-            ("system", prompts["keywords extractor system prompt"]),
-            ("human", prompts["keywords extractor human prompt"])
+            ("system", prompts["skills needed system prompt"]),
+            ("human", prompts["skills needed human prompt"])
         ]
         )
-
+        
         prompt_value_dict = {
-            "cv": cv,
-            "job_description": jd
+            "job_description": state["job_description"]
         }
-
+ 
         result = self.template(
-            pydantic_obj= keywords_extracting_response,
+            pydantic_obj= skillsNeededResponse,
             prompt = prompt,
             prompt_value_dict = prompt_value_dict
         )
 
         return {
-            "missing_keywords" : {
-                "technical" : result.technical_keywords, 
-                "non technical" : result.non_technical_keywords
-                }
-            }
+            "skills_needed": result.skills_needed
+        }
+           
     
-    def critic(self, state):
+    def skills_missing(self, state):
+        time.sleep(60)
+        class skills_missing_object (BaseModel):
+            skill : str = Field(description = "Skill that is required for the job and is present in the candidates CV")
+            description : str = Field(description = "Description on why do you feel the skill is missing in the CV.")
+            priority : str = Field(description = "Priority of the skill for the provided job description. Score out of 100.")
+            skill_type : Literal["technical", "non technical"] = Field(description = "Whether the skill is technical or non technical")
 
-        class CriticResponse(BaseModel):
-            technical_aspects : str = Field(description= "Report that describes the technical aspects that are missing in the candidate's CV that the job requires.")
-            non_technical_aspects : str = Field(description= "Report that describe the non-technical aspects that are missing in the candidate's CV that the job requires.")
+        class SkillsMissingResponse(BaseModel):
+            skills_missing : List[skills_missing_object] = Field(description = "List of skills_missing object. Each object have skill name, description and their priority.")
 
-        prompt = ChatPromptTemplate.from_messages([
-            ("system", prompts["critic system prompt"]),
-            ("human", prompts["critic human prompt"])
+        prompt_tuple = [
+            ("system", prompts["skills missing system prompt"]),
+            ("human", prompts["skills missing human prompt"])
         ]
-        )
+        prompt = ChatPromptTemplate.from_messages(prompt_tuple)
 
         prompt_value_dict = {
-            "cv": cv,
-            "job_description": jd
+            "cv": state["cv"],
+            "skills_and_description_list" : state["skills_needed"]
         }
 
         result = self.template(
-            pydantic_obj= CriticResponse,
+            pydantic_obj= SkillsMissingResponse,
             prompt = prompt,
             prompt_value_dict = prompt_value_dict
         )
+        
+        skills_needed = []
+        
+        for i in state["skills_needed"]:
+            skills_needed.append(i.skill)
+
+        for i in skills_needed:
+            if i not in skills_needed :
+                error_prompt = ("system", "You have listed skills that is not present in the skills needed list. Please rectify them.")
+                prompt_tuple.append(error_prompt)
+                temp = prompt_tuple[0]
+                prompt_tuple[0] = prompt_tuple[-1]
+                prompt_tuple[-1] = temp
+                prompt = ChatPromptTemplate.from_messages(prompt_tuple)
+
+                result = self.template(
+                                        pydantic_obj= SkillsMissingResponse,
+                                        prompt = prompt,
+                                        prompt_value_dict = prompt_value_dict
+                )
+                
 
         return {
-            "missing_aspects" : {
-                "technical" : result.technical_aspects,
-                "non technical" : result.non_technical_aspects
-            }
+            "skills_missing": result.skills_missing
         }
-    
+                                                                  

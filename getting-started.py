@@ -45,4 +45,4 @@ messages = compiled_graph.invoke({
     "result" : "No state"
 })
 
-messages["result"]
+messages["result"].content
