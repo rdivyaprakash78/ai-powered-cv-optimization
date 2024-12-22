@@ -71,46 +71,162 @@ Ship Performance analysis: 											         Link
 
 jd = """
 About the job
-What Our 2 Year Data Analyst Graduate Scheme Involves
+Role Overview 🤖
 
-Our graduate schemes are all about creating our future leaders, you’ll be working as part of our core business teams where you’ll be supported every step of the way, enjoying structured training and the chance to shine through working on exciting projects. Not only will you gain wide-ranging experience of a big business and bags of industry insight our graduate roles are a great opportunity for you to kick-start your career. We’ll help you on your way to climbing the career ladder into managerial roles within both the function and wider business.
-
-
-
-Our 2-year Data Analyst Programme focuses on helping you develop specialist expertise in Data and Analytics. You will get the opportunity to work on varying projects across the business.
-
-You’ll collaborate with stakeholders across the business to solve key issues. Communicating results to key decision makers including Heads of and Directors. You will keep up to date with trends in data science, learning and share new skills and methods. You will receive training covering the core knowledge and skills you’ll need to succeed.
+As an AI Engineer, you’ll develop and implement advanced machine learning and AI solutions that power cutting-edge applications. Collaborating with interdisciplinary teams, you'll design, train, and deploy models that solve complex problems, enhance user experiences, and drive business innovation.
 
 
 
-You’ll be nurtured as part of the EVRi Emerging Talent Development programme with a business mentor provided to support you on your journey with us. As part of the programme, you will attend inclusive graduate peer networking and communal development days to allow you to connect with fellow graduates.
+Key Responsibilities 🌟
+
+Develop AI Models: 🧠 Design, train, and deploy machine learning models tailored to solve business problems or enhance product capabilities.
+Data Analysis and Preparation: 📊 Clean, preprocess, and analyze large datasets to enable effective model training and evaluation.
+Deploy and Optimize Solutions: 🚀 Build scalable AI systems, integrating models into production environments while ensuring optimal performance and reliability.
+Collaborate Across Teams: 🤝 Work closely with data scientists, engineers, and product managers to align AI solutions with business objectives.
+Research and Experiment: 🔬 Explore and evaluate emerging technologies, frameworks, and algorithms to enhance current systems or create new capabilities.
+Monitor and Improve Models: 📈 Continuously evaluate model performance and refine them based on feedback and changing requirements.
+Document and Communicate Findings: 📝 Create detailed documentation for processes, models, and results, sharing insights with technical and non-technical stakeholders.
 
 
+Key Requirements ✔️
 
-What You’ll Need To Become An EVRi Graduate
-
-A minimum 2:1 degree in Data Science, statistics, computer science, maths or a similar degree.
-Great communication skills and the ability to lead, influence and build strong working relationships with a diverse team of people.
-Positive attitude, resilient, determined and a great listener and communicator.
-Enjoy working in a challenging, fast-paced environment.
-Be analytical and good with numbers with plenty of common sense.
-Familiarity with a popular coding language for data analysis such as Python, R or SQL.
-A full UK driving license as some travel may be required in this role between EVRi sites.
-The ability to solve problems and keep your finger on the pulse of what’s happening across our business.
+Experience: Proven experience in AI/ML development, with specific expertise in working with large language models (e.g., OpenAI GPT, LLaMA, Hugging Face Transformers).
+Technical Skills:🐍 Proficiency in Python and machine learning frameworks such as TensorFlow, PyTorch, or Scikit-learn.
+📐 Strong foundation in data structures, algorithms, and statistics.
+🌐 Experience with natural language processing (NLP), computer vision, or recommendation systems.
+☁️ Familiarity with cloud platforms (e.g., AWS, GCP, Azure) for deploying AI solutions.
+🔗 Understanding of data pipeline tools like Apache Spark, Kafka, or Airflow.
+Soft Skills: 💡 Excellent problem-solving skills, communication abilities, and adaptability to fast-paced environments.
 
 
-Why Join the Evri Team?
+Bonus Skills ✨
 
-Every parcel, every person, every place – every delivery made for you.
+Experience with federated learning, reinforcement learning, or edge AI.
+Knowledge of tools like Hugging Face, OpenAI APIs, or similar.
+Familiarity with MLOps practices, including CI/CD pipelines for AI systems.
+Experience working in startup environments.
 
-With 650 million parcels delivered per year, Evri is a data-rich operation, with every customer, client and courier engagement, producing actionable insights - across web and app interfaces, telematics, scanner data, operations, CRM and more.
 
-Evri is leading the way in creating responsible delivery experiences for everyone, everywhere. And we’re doing that by offering the most convenient way to send, receive and return parcels without costing the earth.
+What We Offer 🎁
 
-Whether it’s a customer sending a present to a friend, a marketplace trader shipping in bulk or a major retailer such as John Lewis, asos or Next, we’ve got it covered. With our team of 30,000 couriers, thousands of local ParcelShops and a growing network of hubs and depots across the country, we safely get parcels from A to everywhere.
+A unique opportunity to be matched with client startups aligned with your skills, career aspirations, and interests.
+Opportunities to work on impactful projects leveraging cutting-edge AI technologies.
+Access to a network of innovative startups and tech leaders.
+Potential for professional growth and learning in dynamic, high-impact teams.
 
-And it’s not just customers and retailers who trust us. We’ve won loads of industry awards over the past few years, including gongs for IT, innovation and our green fleet.
+"""
 
-But we wouldn’t be the biggest dedicated parcel delivery company in the UK without amazing people. We’re a friendly, ambitious and diverse bunch, united by a passion for delivering the best customer experience. We have great opportunities throughout the business, so take a look to see where you might fit in. We can’t wait to hear from you.
+cv1 ="""
+Siddarth G
+Chennai, Tamil Nadu, India | + 91 7010342944 siddarth.ganesan@gmail.com |Linkedin- Siddarth
+PROFILE
+A results-driven software engineer with three years of hands on experience specializing in Robotic Process
+Automation (RPA). I pride myself on my adaptability and calm demeanor, which allows me to excel even in high
+pressure environments. Proficient in developing and implementing RPA solutions to automate business processes,
+improve efficiency, and drive digital transformation. I am eager to add value to the organization through my
+expertise while continuously enhancing my skills and knowledge.
+SKILLS
+UiPath, Orchestrator, RE framework, Robotic Process Automation (RPA), Java, Kafka, Mongo DB, HTML, CSS, GIT, Gradle, Jenkins
+EXPERIENCE
+ELEMENT5, Chennai, India Sept 2021 – Present
+RPA Developer
+ As a Software Developer at Element5, I have had the opportunity to work on a variety of projects that have enriched my skills and experience in the field. A key aspect of my role has been developing and implementing automation solutions tailored to meet client needs. This involved collaborating with cross-functional teams to gather requirements, design effective solutions, and ensure successful implementation. I played a crucial role in streamlining post-acute care processes by creating and maintaining automations and workflows that enhanced efficiency and reduced operational time. These efforts adhered to healthcare industry best practices and strict data privacy standards.
+ Additionally, I focused on optimizing revenue cycle management by automating billing and payment workflows, which reduced processing times and improved the accuracy of financial operations. I ensured that all automations met performance, security, and usability standards, while also engaging with product managers and stakeholders to define project scope and requirements. My work included participating in code reviews, providing constructive feedback, and implementing automated testing processes to maintain high software quality. These initiatives led to measurable outcomes, including a reduced reliance on manual effort and enhanced revenue collection efficiency.
+ Experienced in automating processes across various platforms including Citrix, Web Applications. In Citrix environments, I developed automation solutions to streamline operations and improve efficiency. My web automation expertise includes automating form submissions and data extraction tasks. Additionally, I have managed secure file transfers and uploads using SFTP, facilitating efficient data exchange between systems. File manipulation for Excel and CSV formats. I have also leveraged APIs to display results in user interfaces (Automation Hub) for enhancing user experience.
+ Developed and implemented Java-based RPA solutions, leveraging Kafka for real-time data streaming and MongoDB for efficient data management. Streamlined processes by integrating backend services and ensuring reliable, scalable automation workflows.
+EDUCATION
+Bachelor of Engineering in Computer Science
+Anna University 2020
+VELAMMAL ENGINEERING
+COLLEGE
+6.89 CGPA
+Higher Secondary Certificate (12)
+State Board 2016
+JAIGOPAL GARODI
+VIVEKANANDA VIDYALAYA
+72%
+Secondary School Certificate (10)
+CBSE Board 2014
+JAIGOPAL GARODIA
+VIVEKANANDA VIDYALAYA
+82%
+"""
 
+cv3= """
+VIKRAM ELAPPAKKAM LAKSHMIPATHI
+London | (+44) 7909320339 | lvikram12g@gmail.com | http://www.linkedin.com/in/vikraml
+PROFILE SUMMARY
+M.Sc. Data Science graduate with expertise in data analysis, visualization, and business insights. Proven ability to handle
+complex datasets and deliver actionable insights to inform strategic decisions. Experienced in data quality assurance,
+building BI dashboards, and collaborating with cross-functional teams to meet business goals. Adept at stakeholder
+communication and tailoring data-driven solutions to optimize resource allocation and improve operational efficiency.
+Passionate about leveraging data analytics to support organizational objectives and improve employee experiences.
+Currently seeking a role in data to drive impactful decisions within a data-driven culture.
+EDUCATION
+Master of Science in Data Science
+Kingston University, London | Jan 2023 - Jan 2024 | Distinction
+● Notable Modules: Data Analysis and Visualization, Machine Learning
+Bachelor of Engineering in Computer Science
+Amrita Vishwa Vidyapeetham, Kerala, India | Jul 2017 - Jun 2021 | CGPA: 6.38
+ACADEMIC PROJECTS
+● Driver Drowsiness Detection (Dissertation)
+Developed a deep learning model using Mediapipe and CNN, achieving 96% accuracy in detecting drowsiness,
+which can significantly reduce accident risks.
+● Medical Image Classification
+Created a web application using Python and Keras for classifying medical images, processing over 1,000 images
+with a 92% accuracy rate, and improving diagnostic speed.
+● UK Airport Punctuality Analysis
+Designed a Power BI reporting system for 10 UK airports, transforming raw data into interactive dashboards,
+leading to a 15% improvement in operational processes.
+● Crime Statistics Analysis
+Conducted exploratory data analysis on over 5,000 records of Montgomery County crime data, identifying key
+trends and proposing strategies that could reduce crime rates by up to 20%.
+PROFESSIONAL EXPERIENCE
+Business Analyst
+Tata Consultancy Services, Bangalore, India | May 2021 - Dec 2022
+● Analyzed financial and operational data to identify key trends and provided actionable insights, driving resource
+allocation optimization and improving process efficiency by 40%.
+● Created and maintained over 50+ reports in Power BI and Excel, enhancing data accessibility and financial
+reporting for senior management and key stakeholders.
+● Created recurring and ad-hoc weekly, monthly, and quarterly Excel reports using PowerBi with the required
+visualisations by pulling the relevant data from the client's database to provide insights that support with the
+client's business strategies and decision-making.
+● Collaborated with cross-functional teams to understand business data requirements, delivering tailored data
+solutions that aligned with strategic goals and increased client satisfaction by 25%.
+● Enhanced data collection procedures to improve data accuracy and support data-driven decision-making in
+high-priority finance and resource management projects.
+● Played a pivotal role in profit/loss analysis, ensuring the accuracy of key financial metrics, and supporting senior
+management in shaping business strategy.
+Intern - Data Analyst
+Omdena (UEFA Euro 2024 Project), Remote | Apr 2023 - Aug 2023
+● Collaborated with a global team on a project analyzing investment opportunities and operational performance
+for the UEFA Euro 2024 tournament, applying advanced data analysis techniques to derive actionable insights.
+● Developed and maintained interactive dashboards using Power BI and Excel, providing clear visualizations of key
+metrics that improved data-driven decision-making for stakeholders.
+● Applied statistical techniques and machine learning algorithms in Python to assess trends in team performance,
+ticket sales, and financial investments, contributing to the optimization of event planning strategies.
+● Provided data-driven recommendations to improve resource allocation and boost event profitability by 15%.
+● Ensured data integrity and compliance throughout the project by validating datasets and automating data
+extraction processes, leading to a 20% improvement in reporting accuracy and efficiency.
+SKILLS
+● Data Analysis & Financial Reporting: Strong expertise in analyzing financial data and operational metrics to
+provide actionable insights that inform business strategy.
+● Data Visualization: Proficient in Power BI, Tableau, and Excel for creating dynamic dashboards that communicate
+data trends and performance metrics effectively.
+● Programming & Statistical Analysis: Advanced skills in SQL, Python, and R for data processing, statistical analysis,
+and automating workflows.
+● Data Quality & Integrity: Extensive experience in validating and ensuring the accuracy of datasets, with a focus
+on improving data collection and extraction procedures.
+● Stakeholder Collaboration: Excellent communication and collaboration skills, working effectively with
+cross-functional teams and senior stakeholders to meet business objectives.
+● Machine Learning & Statistical Techniques: Applied machine learning models in Python for predictive analysis
+and financial trend forecasting.
+INTERESTS & ACHIEVEMENTS
+● Passionate about trends in data science and innovations in machine learning.
+● Internship at OMDENA for UEFA Euro 2024, collaborating on extensive data analysis and machine learning
+applications, which resulted in actionable insights for the tournament.
+● Honored with the Employee of the Month Award at Tata Consultancy Services in May 2022 for exceptional
+performance, recognized for exceeding project expectations.
+REFERENCES
+Available upon request.
 """

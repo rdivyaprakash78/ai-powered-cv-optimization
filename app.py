@@ -2,7 +2,7 @@ import os
 from nodes import nodes
 from langgraph.graph import MessagesState
 from langgraph.graph import START,END, StateGraph
-from resources import cv, jd
+from resources import cv, jd,cv1,cv3
 from typing import List
 import time
 
@@ -13,38 +13,27 @@ class state(MessagesState):
     job_description : str
     skills_missing : List[dict]
     skills_present : List[dict]
+    question : str
     
 
 graph = StateGraph(state)
 
-#graph.add_node("keywords_extractor", node.missing_keywords)
-#graph.add_node("critic", node.critic)
-#graph.add_node("scorer", node.score_calculator)
-#graph.add_node("skills_missing_generater", node.skills_missing)
 graph.add_node("skills_analyzer", node.skills_analyzer)
-
-#graph.add_edge(START, "keywords_extractor")
-#graph.add_edge(START, "critic")
-#graph.add_edge(START,"scorer")
-#graph.add_edge(START,"skills_present_generater")
+graph.add_node("question_generator", node.question_generator)
 graph.add_edge(START, "skills_analyzer")
-#graph.add_edge("skills_needed_generater", "skills_missing_generater")
-#graph.add_edge("keywords_extractor", END)
-#graph.add_edge("critic", END)
-#graph.add_edge("scorer", END)
-#graph.add_edge("skills_present_generater", END)
-graph.add_edge("skills_analyzer", END)
+graph.add_edge("skills_analyzer", "question_generator")
+graph.add_edge("question_generator", END)
 
 compiled_graph = graph.compile()
 
 messages = compiled_graph.invoke(
         {
-            "cv": cv,  
+            "cv": cv3,  
             "job_description": jd, 
             "skills_missing" : {},
-            "skills_present" : {}
+            "skills_present" : {},
+            "question" : ""
         }
     )
 
-messages["skills_missing"]
-messages["skills_present"]
+messages["question"]

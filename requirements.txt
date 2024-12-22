@@ -6,3 +6,5 @@ regex
 streamlit
 langchain_groq
 rich
+streamlit
+langchain_openai
