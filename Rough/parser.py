@@ -1,6 +1,6 @@
 import streamlit as st
 #from structured_output import get_structured_output
-from resources import cv3
+from Fair.resources import cv3
 
 sample = {'name': 'Vikram Elappakkam Lakshmipathi',
  'email': 'lvikram12g@gmail.com',

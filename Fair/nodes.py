@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain.output_parsers import PydanticOutputParser, OutputFixingParser, RetryWithErrorOutputParser
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from prompts import prompts
+from Fair.prompts import prompts
 from langchain_groq import ChatGroq
 from langchain_core.exceptions import OutputParserException
 from typing import List, Literal

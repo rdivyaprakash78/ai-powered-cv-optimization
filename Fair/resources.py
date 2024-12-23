@@ -230,3 +230,42 @@ performance, recognized for exceeding project expectations.
 REFERENCES
 Available upon request.
 """
+
+data = {
+ 'name': 'Vikram Elappakkam Lakshmipathi',
+ 'email': 'lvikram12g@gmail.com',
+ 'phone': '+44 7909320339',
+ 'location': 'London',
+ 'education': [{'degree': 'Master of Science in Data Science',
+   'institute': 'Kingston University, London',
+   'year': {'month': 'January', 'year': '2023'}},
+  {'degree': 'Bachelor of Engineering in Computer Science',
+   'institute': 'Amrita Vishwa Vidyapeetham, Kerala, India',
+   'year': {'month': 'July', 'year': '2017'}}],
+ 'work_experience': [{'company': 'Tata Consultancy Services',
+   'role': 'Business Analyst',
+   'description': "Analyzed financial and operational data to identify key trends and provided actionable insights, driving resource allocation optimization and improving process efficiency by 40%. Created and maintained over 50+ reports in Power BI and Excel, enhancing data accessibility and financial reporting for senior management and key stakeholders. Created recurring and ad-hoc weekly, monthly, and quarterly Excel reports using PowerBi with the required visualisations by pulling the relevant data from the client's database to provide insights that support with the client's business strategies and decision-making. Collaborated with cross-functional teams to understand business data requirements, delivering tailored data solutions that aligned with strategic goals and increased client satisfaction by 25%. Enhanced data collection procedures to improve data accuracy and support data-driven decision-making in high-priority finance and resource management projects. Played a pivotal role in profit/loss analysis, ensuring the accuracy of key financial metrics, and supporting senior management in shaping business strategy.",
+   'start_date': {'month': 'May', 'year': '2021'},
+   'end_date': {'month': 'December', 'year': '2022'}},
+  {'company': 'Omdena (UEFA Euro 2024 Project)',
+   'role': 'Intern - Data Analyst',
+   'description': 'Collaborated with a global team on a project analyzing investment opportunities and operational performance for the UEFA Euro 2024 tournament, applying advanced data analysis techniques to derive actionable insights. Developed and maintained interactive dashboards using Power BI and Excel, providing clear visualizations of key metrics that improved data-driven decision-making for stakeholders. Applied statistical techniques and machine learning algorithms in Python to assess trends in team performance, ticket sales, and financial investments, contributing to the optimization of event planning strategies. Provided data-driven recommendations to improve resource allocation and boost event profitability by 15%. Ensured data integrity and compliance throughout the project by validating datasets and automating data extraction processes, leading to a 20% improvement in reporting accuracy and efficiency.',
+   'start_date': {'month': 'April', 'year': '2023'},
+   'end_date': {'month': 'August', 'year': '2023'}}],
+ 'skills': ['Data Analysis & Financial Reporting',
+  'Data Visualization',
+  'Programming & Statistical Analysis',
+  'Data Quality & Integrity',
+  'Stakeholder Collaboration',
+  'Machine Learning & Statistical Techniques'],
+ 'projects': [{'name': 'Driver Drowsiness Detection',
+   'description': 'Developed a deep learning model using Mediapipe and CNN, achieving 96% accuracy in detecting drowsiness, which can significantly reduce accident risks.'},
+  {'name': 'Medical Image Classification',
+   'description': 'Created a web application using Python and Keras for classifying medical images, processing over 1,000 images with a 92% accuracy rate, and improving diagnostic speed.'},
+  {'name': 'UK Airport Punctuality Analysis',
+   'description': 'Designed a Power BI reporting system for 10 UK airports, transforming raw data into interactive dashboards, leading to a 15% improvement in operational processes.'},
+  {'name': 'Crime Statistics Analysis',
+   'description': 'Conducted exploratory data analysis on over 5,000 records of Montgomery County crime data, identifying key trends and proposing strategies that could reduce crime rates by up to 20%.'}],
+ 'courses': [],
+ 'certifications': []
+ }

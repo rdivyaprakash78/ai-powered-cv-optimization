@@ -1,8 +1,8 @@
 import os
-from nodes import nodes
+from Fair.nodes import nodes
 from langgraph.graph import MessagesState
 from langgraph.graph import START,END, StateGraph
-from resources import cv, jd,cv1,cv3
+from Fair.resources import cv, jd,cv1,cv3
 from typing import List
 import time
 
