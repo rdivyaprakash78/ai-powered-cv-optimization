@@ -33,7 +33,17 @@ def education(data):
         with c4:
             st.session_state["data"]["education"][i]["year"]["month"] = st.text_input(label = "Month of graduation", value= institute['year']['month'])
 
-    add_more = st.checkbox("Add more education")
+    add = True
+    while add:
+        add_more = st.checkbox("Add more education")
+        if add_more:
+            degree = st.text_input("Degree")
+            institute= st.text_input("Institute")
+            year = st.text_input("Year of graduation")
+            month = st.text_input("Month of graduation")
+            st.session_state["data"]["education"].append({"degree": degree, "institute": institute, "year": {"year": year, "month": month}})
+        add = False
+        
 
 def experience(data):
     st.markdown("### Experience")
