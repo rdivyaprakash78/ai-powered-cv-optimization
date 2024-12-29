@@ -27,11 +27,11 @@ def upload():
         file_path = os.path.join("./cv.pdf")
         content = extract_text(file_path)
         print(content)
-        data = get_structured_output(content, llm)
-        print(data)
+        #data = get_structured_output(content, llm)
+        #print(data)
         return_dict = {
             "redirect" : url_for("parser"),
-            "cv" : json.dumps(data["args"])
+            #"cv" : json.dumps(data["args"])
         }
         return jsonify(return_dict)
 

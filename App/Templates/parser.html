@@ -1,3 +1,79 @@
 {% extends "base.html" %} {% block page %}
-<div id="cv"></div>
+<div id="parsingForm">
+  <h2 class="formTitle">Parsing Area</h2>
+  <form id = "parsedForm">
+  <h3 class="Heading">General Information</h3>
+  <div class =fieldList>
+  <p class ='fieldName' >Name</p><input name ="name" type="text" class="fieldValue"></input>
+  </div>
+  <div class =fieldList>
+    <p class ='fieldName' >Email</p><input name ="email" type="text" class="fieldValue"></input>
+  </div>
+  <div class =fieldList>
+    <p class ='fieldName'>Mobile</p><input name  ="mobile" type="text" class="fieldValue"></input>
+  </div>
+  <div class =fieldList>
+    <p class ='fieldName'>Location</p><input name = "location" type="text" class="fieldValue"></input>
+  </div>
+  <h3 class="Heading">Education</h3>
+  <div id="educationContainer">
+    <div class="Education">
+      <div class="column">
+        <div class="educationFieldList">
+          <p class="fieldName">Degree</p>
+          <input name="degree" type="text" class="educationFieldValue" />
+        </div>
+        <div class="educationFieldList">
+          <p class="fieldName">Institute</p>
+          <input name="institute" type="text" class="educationFieldValue" />
+        </div>
+      </div>
+      <div class="column graduationField">
+        <div class="educationFieldList">
+          <p class="fieldName">Year of graduation</p>
+          <input name="year" type="text" class="educationFieldValue" />
+        </div>
+        <div class="educationFieldList">
+          <p class="fieldName">Month of graduation</p>
+          <input name="month" type="text" class="educationFieldValue" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="Heading">Experience</h3>
+  <div id="experienceContainer">
+    <div class="Experience">
+    <div class = "normalField">
+      <div class="column">
+        <div class="experienceFieldList">
+          <p class="fieldName">Company</p>
+          <input name="company" type="text" class="experienceFieldValue" />
+        </div>
+        <div class="experienceFieldList">
+          <p class="fieldName">Role</p>
+          <input name="role" type="text" class="experienceFieldValue" />
+        </div>
+      </div>
+      <div class="column timeField">
+        <div class="experienceFieldList">
+          <p class="fieldName">Start date</p>
+          <input name="startDate" type="text" class="experienceFieldValue" />
+        </div>
+        <div class="experienceFieldList">
+          <p class="fieldName">End date</p>
+          <input name="endDate" type="text" class="experienceFieldValue" />
+        </div>
+      </div>
+      </div>
+      <div class="specialField">
+      <div class="specialexperienceFieldList">
+        <p class="fieldName">Role</p>
+        <textarea name="description" type="text" class="specialexperienceFieldValue"></textarea>
+      </div>
+      </div>
+    </div>
+  </div>
+  <input type="submit" id="Submit" value="Submit">
+  </form>
+</div>
 {% endblock %}
