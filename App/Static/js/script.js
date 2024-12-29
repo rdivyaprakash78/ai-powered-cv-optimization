@@ -4,6 +4,7 @@ const error_message = document.getElementById("remark");
 const file_data = document.getElementById("cv");
 let parsed_cv = "";
 const currentPage = window.location.pathname;
+const form_data = document.getElementById("parsedForm");
 
 const json_data = {
   name: "Divyaprakash Rathinasabapathy",
@@ -85,8 +86,26 @@ const json_data = {
         "Applied statistical techniques such as ANOVA and Tukey HSD to assess ship performance over time, identifying significant differences in performance metrics. Developed a dynamic Power BI dashboard to visualize time-series data, highlighting critical trends for strategic decision-making. Used ARIMAX forecasting to predict fuel consumption, achieving a Mean Absolute Percentage Error (MAPE) of 7.42%, providing reliable insights for optimizing fuel efficiency and reducing operational costs.",
     },
   ],
-  courses: [],
-  certifications: [],
+  courses: [
+    {
+      name: "corse 1",
+      description: "description 1",
+    },
+    {
+      name: "course 2",
+      description: "description 2",
+    },
+  ],
+  certifications: [
+    {
+      name: "certification 1",
+      description: "description 1",
+    },
+    {
+      name: "certification 2",
+      description: "description 2",
+    },
+  ],
 };
 
 if (currentPage === "/") {
@@ -286,5 +305,390 @@ function parser() {
 
   // Initialize the form with the given data
   populateExperienceData();
+
+  // Function to create the "Add More" button dynamically
+  function createAddMoreSkillButton() {
+    const addMoreSkillButton = document.createElement("button");
+    addMoreSkillButton.id = "addMoreSkillButton";
+    addMoreSkillButton.textContent = "Add More";
+    addMoreSkillButton.addEventListener("click", () => addSkillForm());
+    document.getElementById("skillsContainer").appendChild(addMoreSkillButton);
+  }
+
+  // Function to add a new education form dynamically
+  const addSkillForm = (data = []) => {
+    // Clone the first empty fieldset as a template
+    const skillTemplate = document.querySelector(".skill").cloneNode(true);
+
+    // Clear any pre-filled values from the cloned template
+    skillTemplate.querySelector('input[name="skill"]').value = data || "";
+
+    // Remove the existing "Add More" button
+    const addMoreSkillButton = document.getElementById("addMoreSkillButton");
+    if (addMoreSkillButton) {
+      addMoreSkillButton.remove();
+    }
+
+    // Append the cloned template to the container
+    const container = document.getElementById("skillsContainer");
+    container.appendChild(skillTemplate);
+
+    // Add the "Add More" button back at the end
+    createAddMoreSkillButton();
+  };
+
+  // Function to populate data into the first field and create new fields if needed
+  const populateSkillData = () => {
+    const firstSkillField = document.querySelector(".skill");
+    const skillData = json_data.skills;
+
+    // Populate the first field with the first entry in the data
+    if (skillData.length > 0) {
+      const firstData = skillData[0];
+      firstSkillField.querySelector('input[name="skill"]').value =
+        firstData || "";
+    }
+
+    // Add additional fields for the remaining data entries
+    skillData.slice(1).forEach((data) => addSkillForm(data));
+
+    // Dynamically add the "Add More" button
+    //createAddMoreButton();
+  };
+
+  // Initialize the form with the given data
+  populateSkillData();
   //createAddMoreButton();
+
+  function createAddMoreProjectButton() {
+    const addMoreProjectButton = document.createElement("button");
+    addMoreProjectButton.id = "addMoreProjectButton";
+    addMoreProjectButton.textContent = "Add More";
+    addMoreProjectButton.addEventListener("click", () => addProjectForm());
+    document
+      .getElementById("projectsContainer")
+      .appendChild(addMoreProjectButton);
+  }
+
+  // Function to add a new education form dynamically
+  const addProjectForm = (data = {}) => {
+    // Clone the first empty fieldset as a template
+    const projectTemplate = document.querySelector(".project").cloneNode(true);
+
+    // Clear any pre-filled values from the cloned template
+    projectTemplate.querySelector('input[name="projectName"]').value =
+      data.name || "";
+    projectTemplate.querySelector('textarea[name="projectDescription"]').value =
+      data.description || "";
+
+    // Remove the existing "Add More" button
+    const addMoreProjectButton = document.getElementById(
+      "addMoreProjectButton"
+    );
+    if (addMoreProjectButton) {
+      addMoreProjectButton.remove();
+    }
+
+    // Append the cloned template to the container
+    const container = document.getElementById("projectsContainer");
+    container.appendChild(projectTemplate);
+
+    // Add the "Add More" button back at the end
+    createAddMoreProjectButton();
+  };
+
+  // Function to populate data into the first field and create new fields if needed
+  const populateProjectData = () => {
+    const firstProjectField = document.querySelector(".project");
+    const projectData = json_data.projects;
+
+    // Populate the first field with the first entry in the data
+    if (projectData.length > 0) {
+      const firstData = projectData[0];
+      firstProjectField.querySelector('input[name="projectName"]').value =
+        firstData.name || "";
+      firstProjectField.querySelector(
+        'textarea[name="projectDescription"]'
+      ).value = firstData.description || "";
+    }
+
+    // Add additional fields for the remaining data entries
+    projectData.slice(1).forEach((data) => addProjectForm(data));
+
+    // Dynamically add the "Add More" button
+    //createAddMoreButton();
+  };
+
+  // Initialize the form with the given data
+  populateProjectData();
+
+  function createAddMoreCourseButton() {
+    const addMoreCourseButton = document.createElement("button");
+    addMoreCourseButton.id = "addMoreCourseButton";
+    addMoreCourseButton.textContent = "Add More";
+    addMoreCourseButton.addEventListener("click", () => addCourseForm());
+    document
+      .getElementById("coursesContainer")
+      .appendChild(addMoreCourseButton);
+  }
+
+  // Function to add a new education form dynamically
+  const addCourseForm = (data = {}) => {
+    // Clone the first empty fieldset as a template
+    const courseTemplate = document.querySelector(".course").cloneNode(true);
+
+    // Clear any pre-filled values from the cloned template
+    courseTemplate.querySelector('input[name="courseName"]').value =
+      data.name || "";
+    courseTemplate.querySelector('textarea[name="courseDescription"]').value =
+      data.description || "";
+
+    // Remove the existing "Add More" button
+    const addMoreCourseButton = document.getElementById("addMoreCourseButton");
+    if (addMoreCourseButton) {
+      addMoreCourseButton.remove();
+    }
+
+    // Append the cloned template to the container
+    const container = document.getElementById("coursesContainer");
+    container.appendChild(courseTemplate);
+
+    // Add the "Add More" button back at the end
+    createAddMoreCourseButton();
+  };
+
+  // Function to populate data into the first field and create new fields if needed
+  const populateCourseData = () => {
+    const firstCourseField = document.querySelector(".course");
+    const courseData = json_data.courses;
+
+    // Populate the first field with the first entry in the data
+    if (courseData.length > 0) {
+      const firstData = courseData[0];
+      firstCourseField.querySelector('input[name="courseName"]').value =
+        firstData.name || "";
+      firstCourseField.querySelector(
+        'textarea[name="courseDescription"]'
+      ).value = firstData.description || "";
+    }
+
+    // Add additional fields for the remaining data entries
+    courseData.slice(1).forEach((data) => addCourseForm(data));
+
+    // Dynamically add the "Add More" button
+    //createAddMoreButton();
+  };
+
+  // Initialize the form with the given data
+  populateCourseData();
+
+  function createAddMoreCertificationButton() {
+    const addMoreCertificationButton = document.createElement("button");
+    addMoreCertificationButton.id = "addMoreCertificationButton";
+    addMoreCertificationButton.textContent = "Add More";
+    addMoreCertificationButton.addEventListener("click", () =>
+      addCertificationForm()
+    );
+    document
+      .getElementById("certificationContainer")
+      .appendChild(addMoreCertificationButton);
+  }
+
+  // Function to add a new education form dynamically
+  const addCertificationForm = (data = {}) => {
+    // Clone the first empty fieldset as a template
+    const certificationTemplate = document
+      .querySelector(".certification")
+      .cloneNode(true);
+
+    // Clear any pre-filled values from the cloned template
+    certificationTemplate.querySelector(
+      'input[name="certificationName"]'
+    ).value = data.name || "";
+    certificationTemplate.querySelector(
+      'textarea[name="certificationDescription"]'
+    ).value = data.description || "";
+
+    // Remove the existing "Add More" button
+    const addMoreCertificationButton = document.getElementById(
+      "addMoreCertificationButton"
+    );
+    if (addMoreCertificationButton) {
+      addMoreCertificationButton.remove();
+    }
+
+    // Append the cloned template to the container
+    const container = document.getElementById("certificationContainer");
+    container.appendChild(certificationTemplate);
+
+    // Add the "Add More" button back at the end
+    createAddMoreCertificationButton();
+  };
+
+  const populateCertificationData = () => {
+    const firstCertificationField = document.querySelector(".certification");
+    const certificationData = json_data.certifications;
+
+    // Populate the first field with the first entry in the data
+    if (certificationData.length > 0) {
+      const firstData = certificationData[0];
+      firstCertificationField.querySelector(
+        'input[name="certificationName"]'
+      ).value = firstData.name || "";
+      firstCertificationField.querySelector(
+        'textarea[name="certificationDescription"]'
+      ).value = firstData.description || "";
+    }
+
+    // Add additional fields for the remaining data entries
+    certificationData.slice(1).forEach((data) => addCertificationForm(data));
+
+    // Dynamically add the "Add More" button
+    //createAddMoreButton();
+  };
+
+  // Initialize the form with the given data
+  populateCertificationData();
+
+  document
+    .getElementById("parsedForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      const formData = {}; // Initialize the object to store form data
+
+      // General Information Section
+      formData.generalInformation = {};
+      const generalFields = document.querySelectorAll(".fieldList .fieldValue");
+      generalFields.forEach((field) => {
+        formData.generalInformation[field.name] = field.value;
+      });
+
+      // Skill Section
+      formData.skills = [];
+      const skillEntries = document.querySelectorAll("#skillsContainer .skill");
+      skillEntries.forEach((entry) => {
+        const skillData = {};
+        const skillFields = entry.querySelectorAll(".skillField");
+        skillFields.forEach((field) => {
+          skillData[field.name] = field.value;
+        });
+        formData.skills.push(skillData);
+      });
+
+      // Education Section
+      formData.education = [];
+      const educationEntries = document.querySelectorAll(
+        "#educationContainer .Education"
+      );
+      educationEntries.forEach((entry) => {
+        const educationData = {};
+        const educationFields = entry.querySelectorAll(".educationFieldValue");
+        educationFields.forEach((field) => {
+          educationData[field.name] = field.value;
+        });
+        formData.education.push(educationData);
+      });
+
+      // Experience Section
+      formData.experience = [];
+      const experienceEntries = document.querySelectorAll(
+        "#experienceContainer .Experience"
+      );
+      experienceEntries.forEach((entry) => {
+        const experienceData = {};
+
+        // Normal fields
+        const experienceFields = entry.querySelectorAll(
+          ".experienceFieldValue"
+        );
+        experienceFields.forEach((field) => {
+          experienceData[field.name] = field.value;
+        });
+
+        // Special fields (e.g., textarea)
+        const specialField = entry.querySelector(
+          ".specialexperienceFieldValue"
+        );
+        if (specialField) {
+          experienceData.description = specialField.value;
+        }
+
+        formData.experience.push(experienceData);
+      });
+
+      // Projects Section
+      formData.projects = [];
+      const projectEntries = document.querySelectorAll(
+        "#projectsContainer .project"
+      );
+      projectEntries.forEach((entry) => {
+        const projectData = {};
+
+        // Normal fields
+        const projectFields = entry.querySelectorAll(".projectField");
+        projectFields.forEach((field) => {
+          projectData[field.name] = field.value;
+        });
+
+        // Special fields (e.g., textarea)
+        const specialField = entry.querySelector(".specialProjectField");
+        if (specialField) {
+          projectData.description = specialField.value;
+        }
+
+        formData.projects.push(projectData);
+      });
+
+      // Courses Section
+      formData.courses = [];
+      const courseEntries = document.querySelectorAll(
+        "#coursesContainer .course"
+      );
+      courseEntries.forEach((entry) => {
+        const courseData = {};
+
+        // Normal fields
+        const courseFields = entry.querySelectorAll(".courseField");
+        courseFields.forEach((field) => {
+          courseData[field.name] = field.value;
+        });
+
+        // Special fields (e.g., textarea)
+        const specialField = entry.querySelector(".specialCourseField");
+        if (specialField) {
+          courseData.description = specialField.value;
+        }
+
+        formData.courses.push(courseData);
+      });
+
+      // Projects Section
+      formData.certifications = [];
+      const certificationEntries = document.querySelectorAll(
+        "#certificationContainer .certification"
+      );
+      certificationEntries.forEach((entry) => {
+        const certificationData = {};
+
+        // Normal fields
+        const certificationFields = entry.querySelectorAll(
+          ".certificationField"
+        );
+        certificationFields.forEach((field) => {
+          certificationData[field.name] = field.value;
+        });
+
+        // Special fields (e.g., textarea)
+        const specialField = entry.querySelector(".specialCertificationField");
+        if (specialField) {
+          certificationData.description = specialField.value;
+        }
+
+        formData.certifications.push(certificationData);
+      });
+
+      console.log("Collected Form Data:", formData);
+      // You can now use `formData` for further processing or sending to the server
+    });
 }

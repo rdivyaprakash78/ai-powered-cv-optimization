@@ -2,6 +2,7 @@
 <div id="parsingForm">
   <h2 class="formTitle">Parsing Area</h2>
   <form id = "parsedForm">
+
   <h3 class="Heading">General Information</h3>
   <div class =fieldList>
   <p class ='fieldName' >Name</p><input name ="name" type="text" class="fieldValue"></input>
@@ -15,6 +16,7 @@
   <div class =fieldList>
     <p class ='fieldName'>Location</p><input name = "location" type="text" class="fieldValue"></input>
   </div>
+
   <h3 class="Heading">Education</h3>
   <div id="educationContainer">
     <div class="Education">
@@ -40,6 +42,7 @@
       </div>
     </div>
   </div>
+
   <h3 class="Heading">Experience</h3>
   <div id="experienceContainer">
     <div class="Experience">
@@ -73,6 +76,47 @@
       </div>
     </div>
   </div>
+  <h3 class="Heading">Skills</h3>
+  <div id="skillsContainer">
+    <div class="skill">
+      <input name="skill" type="text" class="skillField" />
+    </div>
+  </div>
+  <h3 class="Heading">Projects</h3>
+  <div id="projectsContainer">
+  <div class="project">
+    <div class="projectFieldList">
+    <p class="fieldName">Title</p><input name="projectName" type="text" class="projectField" />
+  </div>
+  <div class="projectFieldList">
+    <p class="fieldName">Description</p><textarea name="projectDescription" type="text" class="specialProjectField" ></textarea>
+  </div>
+  </div>
+</div>
+<h3 class="Heading">Courses</h3>
+  <div id="coursesContainer">
+  <div class="course">
+    <div class="courseFieldList">
+    <p class="fieldName">Title</p><input name="courseName" type="text" class="courseField" />
+  </div>
+  <div class="courseFieldList">
+    <p class="fieldName">Description</p><textarea name="courseDescription" type="text" class="specialCourseField" ></textarea>
+  </div>
+  </div>
+</div>
+<h3 class="Heading">Certification</h3>
+  <div id="certificationContainer">
+  <div class="certification">
+    <div class="certificationFieldList">
+    <p class="fieldName">Title</p><input name="certificationName" type="text" class="certificationField" />
+  </div>
+  <div class="certificationFieldList">
+    <p class="fieldName">Description</p><textarea name="certificationDescription" type="text" class="specialCertificationField" ></textarea>
+  </div>
+  </div>
+</div>
+
+
   <input type="submit" id="Submit" value="Submit">
   </form>
 </div>

@@ -225,3 +225,211 @@ h4 {
   justify-content: left;
   margin-bottom: 10px;
 }
+
+#skillsContainer {
+  padding: 10px;
+  justify-content: center;
+}
+
+.skill {
+  width: 200px;
+  height: 25px;
+  padding: 5px;
+  background-color: rgb(135, 29, 235);
+  margin-bottom: 10px;
+  justify-content: center;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.skillField {
+  width: 170;
+  height: 14px;
+  border: none;
+  padding: 0px;
+  padding-bottom: 2px;
+  justify-content: center;
+}
+
+.skillField:focus {
+  outline: none;
+}
+
+#addMoreSkillButton {
+  margin-top: 10px;
+  background-color: rgb(235, 21, 125);
+  color: white;
+  border: none;
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  justify-content: left;
+  margin-bottom: 10px;
+}
+
+.project {
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 20px;
+  background-color: rgb(135, 29, 235);
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 12px;
+  border-radius: 10px;
+  width: 600px;
+  height: 100px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.projectFieldList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projectField {
+  width: 497px;
+  height: 14px;
+  border: none;
+  padding: 0px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+  justify-content: center;
+}
+
+.specialProjectField {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 2px;
+  justify-content: space-between;
+  font-family: sans-serif !important;
+  resize: none;
+}
+
+#addMoreProjectButton {
+  margin-top: 10px;
+  background-color: rgb(235, 21, 125);
+  color: white;
+  border: none;
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  justify-content: left;
+  margin-bottom: 10px;
+}
+
+.course {
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 20px;
+  background-color: rgb(135, 29, 235);
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 12px;
+  border-radius: 10px;
+  width: 600px;
+  height: 100px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.courseFieldList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.courseField {
+  width: 497px;
+  height: 14px;
+  border: none;
+  padding: 0px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+  justify-content: center;
+}
+
+.specialCourseField {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 2px;
+  justify-content: space-between;
+  font-family: sans-serif !important;
+  resize: none;
+}
+
+#addMoreCourseButton {
+  margin-top: 10px;
+  background-color: rgb(235, 21, 125);
+  color: white;
+  border: none;
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  justify-content: left;
+  margin-bottom: 10px;
+}
+
+.certification {
+  justify-content: space-between;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 20px;
+  background-color: rgb(135, 29, 235);
+  padding-bottom: 0px;
+  padding-left: 10px;
+  padding-right: 12px;
+  border-radius: 10px;
+  width: 600px;
+  height: 100px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10px;
+}
+
+.certificationFieldList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.certificationField {
+  width: 497px;
+  height: 14px;
+  border: none;
+  padding: 0px;
+  padding-bottom: 2px;
+  border-radius: 2px;
+  justify-content: center;
+}
+
+.specialCertificationField {
+  height: 50px;
+  width: 100%;
+  border: none;
+  border-radius: 2px;
+  justify-content: space-between;
+  font-family: sans-serif !important;
+  resize: none;
+}
+
+#addMoreCertificationButton {
+  margin-top: 10px;
+  background-color: rgb(235, 21, 125);
+  color: white;
+  border: none;
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  justify-content: left;
+  margin-bottom: 10px;
+}

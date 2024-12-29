@@ -28,7 +28,6 @@ class Courses(BaseModel):
 
 class Certifications(BaseModel):
     name : str = Field(description="The name of the certification")
-    date : MonthYear = Field(description="The date at which the certification was achieved")
     description : str = Field(description="Short description on the certification")
 
 class CV(BaseModel) :
