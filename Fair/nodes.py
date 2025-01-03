@@ -1,14 +1,9 @@
 import os
 from dotenv import load_dotenv
-from langchain.output_parsers import PydanticOutputParser, OutputFixingParser, RetryWithErrorOutputParser
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from Fair.prompts import prompts
-from langchain_groq import ChatGroq
-from langchain_core.exceptions import OutputParserException
-from typing import List, Literal
-from pydantic import BaseModel, Field
+from langchain_core.prompts import ChatPromptTemplate
+from prompts import prompts
+from pydantic import BaseModel, Field, field_validator
 from langchain_openai import ChatOpenAI
-import time
 
 load_dotenv()
 
@@ -17,90 +12,55 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = "https://api.smith.langchain.com"
 os.environ["LANGCHAIN_PROJECT"]="cv-improver"
 
+# Pydantic response model
+class Attribute(BaseModel):
+    attribute : str = Field(description = "The attribute that is expected by the job recruiter from the candidate")
+    priority: int = Field(description = "A score out of 100 to quantify how much important is the attribute for the job")
+    description : str = Field(description = "A short description on what the recruiter is expecting from the canddiate regarding the attribute")
+
+    @field_validator('priority')
+    def check_priority_range(cls, value):
+        if not (0 <= value <= 100):
+            raise ValueError('Priority score must be between 0 and 100')
+        return value
+
+class Attributes(BaseModel):
+    attributes : list[Attribute] = Field(description = "List of all the attributes along with its corresponding priority score and description")
+
 class nodes :
-
-    def __init__(self):
+    def __init__(self, jd):
         self.llm = ChatOpenAI(model = "gpt-4o")
-        self.api_key = os.getenv("GROQ_API_KEY")
+        self.jd = jd
 
-    def template(self, pydantic_obj, prompt_tuple, prompt_value_dict):
-
+    def template(self, prompt_tuple, prompt_value_dict, pydantic_obj = None):
         prompt = ChatPromptTemplate.from_messages(prompt_tuple)
-        parser = PydanticOutputParser(pydantic_object=pydantic_obj)
-        format_instructions =  parser.get_format_instructions()
-        prompt_value_dict["format_instructions"] = str(format_instructions)
-        chain = prompt | self.llm
-        response = chain.invoke(prompt_value_dict)
+        if pydantic_obj: 
+            llm_with_tools = self.llm.bind_tools([pydantic_obj],strict=True)
 
-        try :
-            result = parser.parse(response.content)
-        except OutputParserException as e:
-            retry_parser = RetryWithErrorOutputParser.from_llm(parser=parser, llm=self.llm)
-            prompt_value = prompt.format_prompt(**prompt_value_dict)
-            result = retry_parser.parse_with_prompt(response.content, prompt_value)
-            
-        return result       
+        chain = prompt | llm_with_tools
+        response = chain.invoke(prompt_value_dict) 
+
+        return response.tool_calls[0]    
     
-    def skills_analyzer(self, state):
-        class skillsMissingObject (BaseModel):
-            skill : str = Field(description = "Skill that is required for the job and is missing in the candidates CV")
-            description : str = Field(description = "Description on why do you feel the skill is missing in the CV.")
-            priority : int = Field(priority = "How important the skill is for the job")
-            skill_type : Literal["technical", "non technical"] = Field(description = "Whether the skill is technical or non technical")
-
-        class skillsPresentObject (BaseModel):
-            skill : str = Field(description = "Skill that is required by the job and the candidate posses it")
-            description : str = Field(description = "Description on why do you feel the candidate possesses the skill")
-            priority : int = Field(priority = "How important the skill is for the job")
-            skill_type : Literal["technical", "non technical"] = Field(description= "Whether the skill is technical or non technical")
-            confidence : int = Field(confidence = "A confidence on how well the candidate posses that skill")
-
-        class SkillsAnalyzerResponse(BaseModel):
-            skills_missing : List[skillsMissingObject] = Field(description = "List of skills missing object.")
-            skills_present : List[skillsPresentObject] = Field(description = "List of skills present object")
+    def attributes_generator(self, state):
+        system_message = prompts["attributes_generator"]["system"]
+        human_message = prompts["attributes_generator"]["human"]
 
         prompt_tuple = [
-            ("system", prompts["skills analyzer system prompt"]),
-            ("human", prompts["skills analyzer human prompt"])
-        ]
-
+                ("system", system_message),
+                ("human", human_message)
+            ]
+        
         prompt_value_dict = {
-            "cv": state["cv"],
-            "job_description": state["job_description"]
-        }
-
+                "job_description": self.jd
+            }
+        
         result = self.template(
-            pydantic_obj= SkillsAnalyzerResponse,
-            prompt_tuple = prompt_tuple,
-            prompt_value_dict = prompt_value_dict
-        )
-
-        result.skills_present.sort(key=lambda obj: obj.confidence)
-        result.skills_missing.sort(key=lambda obj: obj.priority, reverse=True)
-
+                pydantic_obj= Attributes,
+                prompt_tuple = prompt_tuple,
+                prompt_value_dict = prompt_value_dict
+            )
+        
         return {
-            "skills_missing": result.skills_missing,
-            "skills_present": result.skills_present
-        }
-
-    def question_generator(self, state):
-
-        class question(BaseModel):
-            question : str = Field(description = "Question to ask the candidate")
-
-        prompt_tuple = [
-            ("system", prompts["question generater prompt"])
-        ]
-
-        prompt_value_dict = {
-            "skill" : state["skills_missing"][0].skill,
-            "description" : state["skills_missing"][0].description
-        }  
-
-        result = self.template(
-            pydantic_obj= question,
-            prompt_tuple = prompt_tuple,
-            prompt_value_dict = prompt_value_dict
-        )                                                     
-
-        return {question :result.question}
+            "attributes" : result
+        }                                             

@@ -15,8 +15,8 @@ class WorkExperience(BaseModel):
     company : str = Field(description="The company name")
     role : str = Field(description="The role")
     description : str = Field(description="The description of the roles and responsibilities")
-    start_date : MonthYear = Field(description="The start date of the job")
-    end_date : MonthYear = Field(description="The end date of the job")
+    start_date : str = Field(description="The start date of the job")
+    end_date : str = Field(description="The end date of the job")
 
 class Project(BaseModel):
     name : str = Field(description="The name of the project")

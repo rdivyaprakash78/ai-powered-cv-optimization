@@ -19,6 +19,13 @@ def home():
 def parser():
     return render_template('parser.html')
 
+@app.route('/update', methods=['POST'])
+def update():
+    if request.method == 'POST':
+        data = request.get_json()
+        print(data)
+        return jsonify({"status": "success"})
+
 @app.route('/upload', methods=['POST'])
 def upload():
     if request.method == 'POST':
@@ -27,11 +34,11 @@ def upload():
         file_path = os.path.join("./cv.pdf")
         content = extract_text(file_path)
         print(content)
-        #data = get_structured_output(content, llm)
+        data = get_structured_output(content, llm)
         #print(data)
         return_dict = {
             "redirect" : url_for("parser"),
-            #"cv" : json.dumps(data["args"])
+            "cv" : json.dumps(data["args"])
         }
         return jsonify(return_dict)
 

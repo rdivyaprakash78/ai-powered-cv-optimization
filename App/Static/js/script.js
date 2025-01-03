@@ -6,7 +6,7 @@ let parsed_cv = "";
 const currentPage = window.location.pathname;
 const form_data = document.getElementById("parsedForm");
 
-const json_data = {
+let json_data = {
   name: "Divyaprakash Rathinasabapathy",
   email: "rdivyaprakash78@gmail.com",
   phone: "+44 7818337189",
@@ -135,8 +135,8 @@ function home() {
           return response.json();
         })
         .then((data) => {
-          //parsed_cv = data.cv;
-          //localStorage.setItem("parsed_cv", parsed_cv);
+          parsed_cv = data.cv;
+          localStorage.setItem("parsed_cv", parsed_cv);
           window.location.href = data.redirect;
         });
     } else {
@@ -149,8 +149,9 @@ function home() {
 }
 
 function parser() {
-  //parsed_cv = localStorage.getItem("parsed_cv");
-  //let structured_cv = JSON.parse(parsed_cv);
+  parsed_cv = localStorage.getItem("parsed_cv");
+  let structured_cv = JSON.parse(parsed_cv);
+  json_data = structured_cv;
   let form = document.getElementById("parsedForm");
 
   form.elements["name"].value = json_data.name;
@@ -688,7 +689,14 @@ function parser() {
         formData.certifications.push(certificationData);
       });
 
-      console.log("Collected Form Data:", formData);
-      // You can now use `formData` for further processing or sending to the server
+      fetch("/update", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data));
     });
 }
