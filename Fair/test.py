@@ -30,12 +30,17 @@ if st.session_state.page == "home":
         st.rerun()
 
 if st.session_state.page == "generate_questions":
-    st.session_state["data"]["attributes"] = initiate_graph(st.session_state["data"]["jd"])
+    with st.spinner():
+        response = initiate_graph(st.session_state["data"]["jd"], st.session_state["data"]["cv"])
+
+    st.session_state["data"]["attributes"] = response["attributes"]["args"]["attributes"]
     st.session_state["data"]["sorted_attributes"] = sorted(st.session_state["data"]["attributes"], key=lambda att: att["priority"], reverse=True)
+
+    st.session_state["data"]["current_question"] = response["question"]["args"]["question"]
     
     st.markdown("\n")
     st.markdown("##### Assistant")
-    st.write("Question")
+    st.write(st.session_state["data"]["current_question"])
 
     with st.form(key="form_answer"):
         user_input = st.text_input("", placeholder="Enter your text here")
