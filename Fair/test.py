@@ -1,6 +1,6 @@
 import streamlit as st
 from extract_text import extract_text
-from llm_helper import initiate_graph
+from llm_helper import initiate_graph, update_graph
 
 st.title("Question Generation Test")
 
@@ -44,10 +44,11 @@ if st.session_state.page == "generate_questions":
 
     with st.form(key="form_answer"):
         user_input = st.text_input("", placeholder="Enter your text here")
+        st.session_state.answer = user_input
         submit_button = st.form_submit_button("Submit")
 
     if submit_button :
-        st.session_state.answer = user_input
+        update_graph(answer = st.session_state.answer)
         st.session_state.page = "generate_questions"
         st.rerun()
 

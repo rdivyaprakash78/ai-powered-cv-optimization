@@ -40,6 +40,10 @@ class SkillMap(BaseModel):
 class SkillMaps(BaseModel):
     missing_attributes : list[SkillMap] = Field(description = "List of missing attributes along with its corresponding description and confidence")
 
+class SkillUpdate(BaseModel):
+    updated_description : str = Field(description = "Description on updated skill match")
+    updated_confidence : int = Field(description = "Updated confidence score between 0 and 100 of proficiency of that attribute in the candidate")
+    
 class nodes :
     def __init__(self, jd, cv):
         self.llm = ChatOpenAI(model = "gpt-4o")
@@ -116,7 +120,7 @@ class nodes :
         attributes = state["skill_map"]["args"]["missing_attributes"]
         attributes = sorted(attributes, key=lambda att: att["priority"], reverse=True)
         attributes_to_test = [obj for obj in attributes if obj["confidence"] < 80]
-        current_attribute = attributes_to_test[0]["attribute"]
+        current_attribute = attributes_to_test[0]
 
         system_message = prompts["question_generator"]["system"]
         human_message = prompts["question_generator"]["human"]
@@ -151,29 +155,50 @@ class nodes :
     def attribute_updater(self, state):
         answer = state["answer"]
 
-        def create_index(data, key):
-            index_map = {}
-            for i, obj in enumerate(data):
-                index_map[obj[key]] = i
-            return index_map
+        system_message = prompts["skill updater"]["system"]
+        human_message = prompts["skill updater"]["human"]
 
-        # Function to pop an object based on key-value pair efficiently
+        prompt_value_dict = {
+                "attribute": state["current_attribute"]["attribute"],
+                "prev_analysis": state["current_attribute"]["description"],
+                "confidence_score" : state["current_attribute"]["confidence"],
+                "question" : state["question"],
+                "user_response" : state["answer"]
+            }
+        
+        prompt_tuple = [
+                ("system", system_message),
+                ("human", human_message)
+            ]
+        
+        result = self.template(
+                pydantic_obj= SkillUpdate,
+                prompt_tuple = prompt_tuple,
+                prompt_value_dict = prompt_value_dict
+            )
+
         def pop_by_key_value(data, key, value):
-            # Create an index based on the key-value pair
-            index_map = create_index(data, key)
+        
+            for i, obj in enumerate(data):
+                if obj.get(key) == value:
+                    popped_object = data.pop(i)
+                    return popped_object, data
+                
+            return None, data  # If no object with the matching key-value pair is found
             
-            # Check if the value exists in the index map
-            if value in index_map:
-                index = index_map[value]
-                popped_object = data.pop(index)
-                return popped_object, data
-            else:
-                return None, data  # If no object with the matching key-value pair is found
-            
-        popped_object, updated_data = pop_by_key_value(state["skill_map"], "attribute", state["current_attribute"])
+        att_dict = state["skill_map"]
+        current_attribute = state["current_attribute"]
+
+        print("current_Attribute : ", current_attribute)
+        popped_object, updated_data = pop_by_key_value(att_dict, "attribute", current_attribute["attribute"])
 
         print("popped object : ", popped_object)
         print("updated data : ", updated_data)
 
-        pass
+        print("updated skill : ", result)
+
+        return {
+            "answer" : "",
+            "question" : ""
+        } 
                                          

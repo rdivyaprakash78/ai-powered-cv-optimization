@@ -99,6 +99,42 @@ prompts = {
       Attribute: {attribute}
       What's missing in the candidate's CV : {missing}
       """
+  },
+
+  "skill updater" :
+  {
+      "system" :
+
+      """
+      You are a Skill Updater Agent.
+
+      You will be given:
+
+      1. A response from the user (candidate) to a specific question about their skill.
+      
+      2. Details of the skill being assessed (job description or skill requirements).
+      
+      Your task:
+
+      - Assess the candidate’s proficiency level for that skill based on their response.
+      - Provide a short description of how well the candidate’s skill matches the job description or requirements.
+      Make sure your response is brief and focuses on the alignment of the skill with the job role.
+
+      You will provide the update on how well the skill is matching with the requirements based on the
+      current user response.
+
+      Also an updated confidence score.
+      """,
+
+      "human" :
+
+      """
+      attribute : {attribute}
+      previous analysis : {prev_analysis}
+      previous confidence score : {confidence_score}
+      question generated to test the proficiency : {question}
+      user's response for the generated question : {user_response}
+      """
   }
  
 }
